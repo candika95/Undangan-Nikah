@@ -62,29 +62,24 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   }
   
   return (
+    <div className="flex flex-nowrap justify-center gap-2 overflow-x-auto">
+  {timeBlocks.map((block, index) => (
     <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg py-6 px-4 sm:px-8"
+      key={block.label}
+      variants={itemVariants}
+      className="text-center"
     >
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
-        {timeBlocks.map((block, index) => (
-          <motion.div
-            key={block.label}
-            variants={itemVariants}
-            className="text-center"
-          >
-            <div className="bg-white bg-opacity-90 rounded-lg py-3 px-2 mb-2">
-              <span className="text-3xl sm:text-4xl font-semibold text-primary-800">
-                {block.value.toString().padStart(2, '0')}
-              </span>
-            </div>
-            <span className="text-white text-sm">{block.label}</span>
-          </motion.div>
-        ))}
+      <div className="bg-white bg-opacity-90 rounded-lg py-2 px-2 mb-2 w-16 sm:w-20">
+        <span className="text-2xl sm:text-3xl font-semibold text-primary-800">
+          {block.value.toString().padStart(2, '0')}
+        </span>
       </div>
+      <span className="text-white text-sm">{block.label}</span>
     </motion.div>
+  ))}
+</div>
+
+
   );
 };
 
