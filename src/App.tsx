@@ -36,7 +36,7 @@ function App() {
       />
       <main>
         <Hero />
-        <OurStory />
+        {/* <OurStory /> */}
         <EventDetails />
         <Schedule />
         <Gallery />
